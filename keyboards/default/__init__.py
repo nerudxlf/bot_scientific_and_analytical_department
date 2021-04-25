@@ -1,1 +1,1 @@
-from .keyboards_menu import menu
+from .keyboards_menu import menu, menu_nti, menu_sntr

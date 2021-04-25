@@ -11,15 +11,6 @@ admins = [
 
 ip = os.getenv("ip")
 
-aiogram_redis = {
-    'host': ip,
-}
-
-redis = {
-    'address': (ip, 6379),
-    'encoding': 'utf8'
-}
-
 DB_USER = str(os.getenv("DB_USER"))
 DB_PASS = str(os.getenv("DB_PASS"))
 DB_NAME = str(os.getenv("DB_NAME"))
