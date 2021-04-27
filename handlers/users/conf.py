@@ -22,6 +22,7 @@ async def get_need_conf(message: types.Message, state: FSMContext):
         answer = int(message.text)
     except ValueError:
         await message.answer("Введите номер конференции или 0 чтобы закончить")
+        return
     if str(message.text) == "0":
         await state.finish()
         return

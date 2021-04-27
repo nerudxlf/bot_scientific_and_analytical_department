@@ -55,7 +55,7 @@ class DataBase:
         return await self.execute(sql, *parameters, fetchrow=True)
 
     async def get_nearest_conf(self):
-        sql = "SELECT * FROM scientific_and_analytical_department.conference_omstu WHERE co_data_start > current_date"
+        sql = "SELECT * FROM scientific_and_analytical_department.conferences_omstu WHERE co_date_start > current_date"
         return await self.execute(sql, fetch=True)
 
     async def get_info_nti(self, name):
