@@ -20,15 +20,17 @@ menu_nti = ReplyKeyboardMarkup(
         [
             KeyboardButton(text="АэроНет"),
             KeyboardButton(text="НейроНет"),
-            KeyboardButton(text="ТехНет")
+            KeyboardButton(text="ТехНет"),
+            KeyboardButton(text="EduNet"),
         ],
         [
             KeyboardButton(text="ФудНет"),
-            KeyboardButton(text="СайфНет"),
-            KeyboardButton(text="WearNet")
+            KeyboardButton(text="СейфНет"),
+            KeyboardButton(text="WearNet"),
+            KeyboardButton(text="СпортНет"),
         ],
         [
-            KeyboardButton(text="Прочее"),
+            KeyboardButton(text="Прочие"),
             KeyboardButton(text="Справка по НТИ"),
             KeyboardButton(text="В начало")
         ]

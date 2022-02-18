@@ -32,7 +32,7 @@ async def get_need_conf(message: types.Message, state: FSMContext):
     links = data_list[2]
     date_start = data_list[4]
     data_end = data_list[5]
-    out_string = f"Название конферении:\n{name}\n" \
+    out_string = f"Название конференции:\n{name}\n" \
                  f"Организаторы:\n{organizer}\n" \
                  f"Ссылки:\n{links}\n" \
                  f"Дата:\n{date_start} - {data_end}"

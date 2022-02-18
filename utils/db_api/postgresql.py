@@ -42,27 +42,27 @@ class DataBase:
         return sql, tuple(parameters.values())
 
     async def select_all_conf(self):
-        sql = "SELECT * FROM scientific_and_analytical_department.conferences_omstu"
+        sql = "SELECT * FROM conferences_omstu"
         return await self.execute(sql, fetch=True)
 
     async def get_id_and_name_conf(self):
-        sql = "SELECT co_id, co_short_name FROM scientific_and_analytical_department.conferences_omstu"
+        sql = "SELECT co_id, co_short_name FROM conferences_omstu"
         return await self.execute(sql, fetch=True)
 
     async def get_full_info(self, **kwargs):
-        sql = "SELECT * FROM scientific_and_analytical_department.conferences_omstu WHERE "
+        sql = "SELECT * FROM conferences_omstu WHERE "
         sql, parameters = self.__format_args(sql, parameters=kwargs)
         return await self.execute(sql, *parameters, fetchrow=True)
 
     async def get_nearest_conf(self):
-        sql = "SELECT * FROM scientific_and_analytical_department.conferences_omstu WHERE co_date_start > current_date"
+        sql = "SELECT * FROM conferences_omstu WHERE co_date_start > current_date"
         return await self.execute(sql, fetch=True)
 
     async def get_info_nti(self, name):
         sql = """
-                SELECT * FROM scientific_and_analytical_department.conferences_omstu AS conf_omstu
-	            LEFT JOIN scientific_and_analytical_department.nti_conf AS nti_conf  ON conf_omstu.co_id = nti_conf.nc_conf_omstu_id
-	            INNER JOIN scientific_and_analytical_department.nti_names AS nti_names
+                SELECT * FROM conferences_omstu AS conf_omstu
+	            LEFT JOIN nti_conf AS nti_conf  ON conf_omstu.co_id = nti_conf.nc_conf_omstu_id
+	            INNER JOIN nti_names AS nti_names
 	            ON nti_names.nn_id = nti_conf.nc_nti_names
 	            WHERE nti_names.nn_name = $1 
             """
@@ -70,9 +70,9 @@ class DataBase:
 
     async def get_info_sntr(self, name):
         sql = """
-                    SELECT * FROM scientific_and_analytical_department.conferences_omstu AS conf_omstu
-    	            LEFT JOIN scientific_and_analytical_department.sntr_conf AS sntr_conf  ON conf_omstu.co_id = sntr_conf.sc_conf_omstu_id
-    	            INNER JOIN scientific_and_analytical_department.sntr_names AS sntr_names
+                    SELECT * FROM conferences_omstu AS conf_omstu
+    	            LEFT JOIN sntr_conf AS sntr_conf  ON conf_omstu.co_id = sntr_conf.sc_conf_omstu_id
+    	            INNER JOIN sntr_names AS sntr_names
     	            ON sntr_names.sn_id = sntr_conf.sc_sntr_names
     	            WHERE sntr_names.sn_name = $1 
                 """
